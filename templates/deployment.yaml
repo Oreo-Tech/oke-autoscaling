@@ -29,13 +29,15 @@ spec:
             requests:
               cpu: 100m
               memory: 300Mi
-          command:
+          command: |-
             - ./cluster-autoscaler
             - --v=4
             - --stderrthreshold=info
             - --cloud-provider=oci-oke
             - --max-node-provision-time=25m
-            - --nodes={{ .Values.node.min }}:{{ .Values.node.max }}:{{ .Values.node.poolOCID }}
+            {{- range .Values.nodes }}
+            - --nodes={{ .min }}:{{ .max }}:{{ .poolOCID }}
+            {{- end }}
             - --scale-down-delay-after-add=60s
             - --scale-down-unneeded-time=60s
             - --unremovable-node-recheck-timeout=60s

@@ -10,10 +10,17 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: 1.25.0-6
 
-node:
-  min: 1
-  max: 5
-  poolOCID: ocid1.nodepool.oc1.ap-melbourne-1.aaaaaaaayltwdjg5mwstwxgvdm5nshhj3cflsajoln6b6z3ainybixxgxfnq
+nodes:
+  - min: 1
+    max: 5
+    poolOCID: ocid1.nodepool.oc1.ap-melbourne-1.aaaaaaaayltwdjg5mwstwxgvdm5nshhj3cflsajoln6b6z3ainybixxgxfnq
+  - min: 1
+    max: 3
+    poolOCID: ocid1.nodepool.oc1.ap-melbourne-1.aaaaaaaayltwdjg5mwstwxgvdm5nshhj3cflsajoln6b6z3ainybixsunsuu
+  - min: 2
+    max: 6
+    poolOCID: ocid1.nodepool.oc1.ap-melbourne-1.aaaaaaaayltwdjg5mwstwxgvdm5nshhj3cflsajoln6b6z3ainybixsunsub
+
 
 imagePullSecrets: []
 nameOverride: ""
